@@ -12,6 +12,7 @@ SPA с выводом карточек с эндпоинта и их фильт�
 ## Стек  
 * React
 * TypeScript
+* Redux Toolkit
 * SCSS
 * CSS Modules
 

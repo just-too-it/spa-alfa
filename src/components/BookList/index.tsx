@@ -1,0 +1,19 @@
+import { Book } from 'components/Book'
+import React, { FC } from 'react'
+import { BookListProps } from './BookListProps.types'
+
+import styles from './BookList.module.scss'
+
+export const BookList: FC<BookListProps> = ({ books }) => {
+  return (
+    <section>
+        
+            <ul className={styles.books}>
+            {
+                 books.map((book) => <li key={book.id}><Book book={book} /></li>)
+                }
+            </ul>
+           
+    </section>
+  )
+}

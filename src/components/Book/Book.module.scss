@@ -1,0 +1,47 @@
+@import 'styles/helpers/variables';
+
+.book {
+  width: 80%;
+  height: 300px;
+  border-radius: 10px;
+  box-shadow: (0px 20px 40px rgba(135, 124, 202, 0.25));
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+
+.img {
+    width: 192px;
+    height: 300px;
+    border: 5px solid $color-blue;
+    border-radius: 5px;
+    overflow: hidden;
+    flex-shrink: 0;
+
+    & img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+    }
+}
+
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 10px;
+}
+
+.description {
+    height: 200px;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0;
+  margin-top: auto;
+}

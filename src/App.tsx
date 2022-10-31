@@ -1,7 +1,10 @@
+import { Home } from 'pages/Home';
 import React from 'react';
 
 function App() {
-  return <h1>Books</h1>;
+  return (
+    <Home />
+  );
 }
 
 export default App;
