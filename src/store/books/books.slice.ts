@@ -39,10 +39,9 @@ export const booksSlice = createSlice({
     builder.addCase(fetchBooks.pending, (state) => {
       state.status = STATUS.LOADING;
     });
-    builder.addCase(fetchBooks.rejected, (state, action: PayloadAction<any>) => {
+    builder.addCase(fetchBooks.rejected, (state) => {
       state.books = [];
       state.status = STATUS.ERROR;
-      state.error = action.payload;
     });
   },
 });
