@@ -75,12 +75,22 @@
   &:hover {
     opacity: 1;
   }
+
   &:active {
     opacity: 0.5;
   }
 }
 
 .liked {
+  opacity: 1;
   fill: $color-blue;
   opacity: 1;
+}
+
+.delete {
+  &:hover {
+    svg {
+      fill: $color-red;
+    }
+  }
 }

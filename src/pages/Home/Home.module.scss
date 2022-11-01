@@ -3,6 +3,7 @@
 .home {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .title {
@@ -26,4 +27,12 @@
     &:hover {
         opacity: 1;
     }
+}
+
+.message {
+    text-align: center;
+}
+
+.loader {
+    text-align: center;
 }

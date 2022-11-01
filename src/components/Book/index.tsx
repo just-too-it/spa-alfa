@@ -4,7 +4,8 @@ import clsx from 'clsx';
 
 import styles from './Book.module.scss';
 import { DeleteIcon, LikeIcon } from 'components/icons';
-import { addBook, deleteBook } from 'store/favoriteBooks/favoriteBooks.slice';
+import { addFavoriteBook, deleteFavoriteBook } from 'store/favoriteBooks/favoriteBooks.slice';
+import { deleteBook } from 'store/books/books.slice';
 import { useAppDispatch } from 'store/store.hooks';
 
 export const Book: FC<{ book: BookProps }> = ({ book }) => {
@@ -16,11 +17,16 @@ export const Book: FC<{ book: BookProps }> = ({ book }) => {
   const handlerClickLiked = () => {
     if (!favorite) {
       setFavorite(true);
-      dispatch(addBook(book));
+      dispatch(addFavoriteBook(book));
     } else {
       setFavorite(false);
-      dispatch(deleteBook(id));
+      dispatch(deleteFavoriteBook(id));
     } 
+  };
+
+  const handlerClickDelete = () => {
+    dispatch(deleteBook(id));
+    dispatch(deleteFavoriteBook(id));
   };
 
   return (
@@ -48,7 +54,7 @@ export const Book: FC<{ book: BookProps }> = ({ book }) => {
           <button className={clsx(styles.button, favorite && styles.liked)} onClick={handlerClickLiked}>
             <LikeIcon width={35} height={35} fill={'#185abc'} />
           </button>
-          <button className={clsx(styles.button, styles.delete)}>
+          <button className={clsx(styles.button, styles.delete)} onClick={handlerClickDelete}>
             <DeleteIcon width={32} height={32} fill={'grey'} />
           </button>
         </div>

@@ -4,21 +4,21 @@ import { BookProps } from 'components/Book/Book.types';
 import { FavoriteBooksState } from './favoriteBooks.types';
 
 const initialState: FavoriteBooksState = {
-  books: [],
+  favoriteBooks: [],
 };
 
 export const favoriteBooksSlice = createSlice({
   name: 'favoriteBooks',
   initialState,
   reducers: {
-    addBook: (state, action: PayloadAction<BookProps>) => {
-      state.books = [...state.books, action.payload];
+    addFavoriteBook: (state, action: PayloadAction<BookProps>) => {
+      state.favoriteBooks = [...state.favoriteBooks, action.payload];
     },
-    deleteBook: (state, action: PayloadAction<string>) => {
-      state.books = state.books.filter((book) => book.id !== action.payload);
+    deleteFavoriteBook: (state, action: PayloadAction<string>) => {
+      state.favoriteBooks = state.favoriteBooks.filter((book) => book.id !== action.payload);
     },
   },
 });
 
-export const { addBook, deleteBook } = favoriteBooksSlice.actions;
+export const { addFavoriteBook, deleteFavoriteBook } = favoriteBooksSlice.actions;
 export default favoriteBooksSlice.reducer;
