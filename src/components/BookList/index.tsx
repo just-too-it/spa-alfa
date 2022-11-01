@@ -10,7 +10,7 @@ export const BookList: FC<BookListProps> = ({ books }) => {
         
             <ul className={styles.books}>
             {
-                 books.map((book) => <li key={book.id}><Book book={book} /></li>)
+                 books.map((book) => <li key={book.id} className={styles.item}><Book book={book} /></li>)
                 }
             </ul>
            

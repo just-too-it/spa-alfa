@@ -3,7 +3,7 @@
 .book {
   width: 80%;
   height: 300px;
-  border-radius: 10px;
+  border-radius: 12px;
   box-shadow: (0px 20px 40px rgba(135, 124, 202, 0.25));
   display: flex;
   gap: 20px;
@@ -14,7 +14,7 @@
 .img {
     width: 192px;
     height: 300px;
-    border: 5px solid $color-blue;
+    border: 3px solid $color-blue;
     border-radius: 5px;
     overflow: hidden;
     flex-shrink: 0;
@@ -27,16 +27,32 @@
     }
 }
 
+.noImage {
+  font-size: 16px;
+  color: $color-blue;
+  text-align: center;
+  margin-top: 20px;
+}
 
 .content {
   display: flex;
   flex-direction: column;
   gap: 15px;
-  padding: 10px;
+  padding: 20px;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 700;
 }
 
 .description {
-    height: 200px;
+    font-size: 16px;
+    margin: 0; 
+    -webkit-line-clamp: 4; 
+    display: -webkit-box; 
+    -webkit-box-orient: vertical; 
+    overflow: hidden; 
 }
 
 .controls {
@@ -44,4 +60,32 @@
   justify-content: space-between;
   margin-bottom: 0;
   margin-top: auto;
+}
+
+.button {
+  width: 35px;
+  height: 35px;
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  padding: 2px;
+  opacity: 0.3;
+
+  &:hover {
+    opacity: 1;
+  }
+  &:active {
+    opacity: 0.5;
+  }
+}
+
+.like  {
+  &:hover {
+    fill:$color-blue;
+  }
+}
+
+.liked {
+  fill:$color-blue;
+  opacity: 1;
 }

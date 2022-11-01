@@ -1,30 +1,29 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BookList } from 'components/BookList';
 import styles from './Home.module.scss';
+import { fetchBooks } from 'store/books/booksSlice';
+
+import { useAppDispatch, useAppSelector } from 'store/store.hooks';
+import { STATUS } from 'core/constants/status';
 
 export const Home = () => {
+  const { data, status } = useAppSelector((state) => state.books);
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(fetchBooks());
+  }, []);
+
   return (
     <main className={'container'}>
-      <h1 className={styles.title}>Список книг из Google Books</h1>  
-      <BookList books={[
-        {
-          id: '1',
-          volumeInfo: {
-            title: 'The Google story',
-            authors: [
-              "David A. Vise",
-              "Mark Malseed"
-             ],
-             description: 'Here is the story behind one of the most remarkable Internet successes of our time. Based on scrupulous research and extraordinary access to Google, ...',
-             imageLinks: {
-              small: "https://books.google.com/books?id=zyTCAlFPjgYC&printsec=frontcover&img=1&zoom=2&edge=curl&source=gbs_api"
-             },
-             averageRating: 3.5
-          }
-
-        }
-      ]} />
+      <h1 className={styles.title}>Список книг из Google Books</h1>
+      {
+        status === STATUS.LOADING && 'Загрузка данных'
+      }
+      {
+        status === STATUS.ERROR && 'Ошибка при запросе данных'
+      }
+      <BookList books={data} />
     </main>
-
   );
 };

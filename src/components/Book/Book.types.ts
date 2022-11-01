@@ -5,8 +5,9 @@ export type BookProps = {
     authors: string[];
     description: string;
     imageLinks: {
-      small: string;
+      thumbnail: string;
     };
     averageRating: number;
   };
+  liked?: boolean;
 };
