@@ -1,7 +1,7 @@
 @import 'styles/helpers/variables';
 
 .book {
-  width: 80%;
+  width: 100%;
   height: 300px;
   border-radius: 12px;
   box-shadow: (0px 20px 40px rgba(135, 124, 202, 0.25));
@@ -12,26 +12,27 @@
 }
 
 .img {
-    width: 192px;
-    height: 300px;
-    border: 3px solid $color-blue;
-    border-radius: 5px;
-    overflow: hidden;
-    flex-shrink: 0;
+  width: 192px;
+  height: 300px;
+  border: 2px solid $color-grey;
+  border-radius: 5px;
+  overflow: hidden;
+  flex-shrink: 0;
 
-    & img {
-        object-fit: cover;
-        width: 100%;
-        height: 100%;
-        border-radius: 50%;
-    }
+  & img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
 }
 
 .noImage {
+  height: 100%;
   font-size: 16px;
   color: $color-blue;
-  text-align: center;
-  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .content {
@@ -47,12 +48,12 @@
 }
 
 .description {
-    font-size: 16px;
-    margin: 0; 
-    -webkit-line-clamp: 4; 
-    display: -webkit-box; 
-    -webkit-box-orient: vertical; 
-    overflow: hidden; 
+  font-size: 16px;
+  margin: 0;
+  -webkit-line-clamp: 4;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .controls {
@@ -79,13 +80,7 @@
   }
 }
 
-.like  {
-  &:hover {
-    fill:$color-blue;
-  }
-}
-
 .liked {
-  fill:$color-blue;
+  fill: $color-blue;
   opacity: 1;
 }

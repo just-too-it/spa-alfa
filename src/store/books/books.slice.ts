@@ -3,6 +3,7 @@ import type { PayloadAction } from '@reduxjs/toolkit';
 import { BookProps } from 'components/Book/Book.types';
 import axios from 'axios';
 import { STATUS } from 'core/constants/status';
+import { BooksState } from './books.types';
 
 export const fetchBooks = createAsyncThunk('books/fetchBooks', async (_, { rejectWithValue }) => {
 
@@ -27,14 +28,10 @@ export const fetchBooks = createAsyncThunk('books/fetchBooks', async (_, { rejec
   //return (await response.json()) as BookProps[];
 });
 
-export interface BooksState {
-  data: BookProps[];
-  status: STATUS;
-  error: string;
-}
+
 
 const initialState: BooksState = {
-  data: [],
+  books: [],
   status: STATUS.LOADING,
   error: null,
 };
@@ -47,14 +44,14 @@ export const booksSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(fetchBooks.fulfilled, (state, action: PayloadAction<BookProps[]>) => {
-        state.data = action.payload;
+        state.books = action.payload;
         state.status = STATUS.SUCCESS;
       });
     builder.addCase(fetchBooks.pending, (state) => {
         state.status = STATUS.LOADING;
       });
     builder.addCase(fetchBooks.rejected, (state, action: PayloadAction<any>) => {
-        state.data = [];
+        state.books = [];
         state.status = STATUS.ERROR;
         state.error = action.payload;
       });

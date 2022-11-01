@@ -1,7 +1,29 @@
 @import 'styles/helpers/variables';
 
+.home {
+    display: flex;
+    flex-direction: column;
+}
+
 .title {
     margin-bottom: 50px;
     text-align: center;
     color: $color-blue;
+}
+
+.button {
+    border: none;
+    background-color: $color-blue;
+    color: $color-white;
+    border-radius: 12px;
+    padding: 10px;
+    cursor: pointer;
+    margin-bottom: 15px;
+    margin-left: auto;
+    margin-right: 0;
+    opacity: 0.8;
+    
+    &:hover {
+        opacity: 1;
+    }
 }
