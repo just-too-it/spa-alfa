@@ -41,6 +41,7 @@
     "no-unused-vars": "off",
     "react/jsx-uses-react": "error",
     "react/jsx-uses-vars": "error",
-    "import/no-unresolved": "error"
+    "import/no-unresolved": "error",
+    "import/no-named-as-default": 0
   }
 }

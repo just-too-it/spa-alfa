@@ -1,38 +1,54 @@
 @import 'styles/helpers/variables';
 
 .home {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .title {
-    margin-bottom: 50px;
-    text-align: center;
-    color: $color-blue;
+  margin-bottom: 50px;
+  text-align: center;
+  color: $color-blue;
+
+  @media (max-width: $tablet-width) {
+    font-size: 22px;
+    line-height: 22px;
+  }
+
+  @media (max-width: $mobile-width) {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
 }
 
 .button {
-    border: none;
-    background-color: $color-blue;
-    color: $color-white;
-    border-radius: 12px;
-    padding: 10px;
-    cursor: pointer;
-    margin-bottom: 15px;
-    margin-left: auto;
-    margin-right: 0;
-    opacity: 0.8;
-    
-    &:hover {
-        opacity: 1;
-    }
+  border: none;
+  background-color: $color-blue;
+  color: $color-white;
+  border-radius: 12px;
+  padding: 10px;
+  cursor: pointer;
+  margin: 0 0 15px auto;
+  opacity: 0.8;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  @media (max-width: $tablet-width) {
+    font-size: 16px;
+  }
+
+  @media (max-width: $mobile-width) {
+    margin: 0 auto 15px;
+  }
 }
 
 .message {
-    text-align: center;
+  text-align: center;
 }
 
 .loader {
-    text-align: center;
+  text-align: center;
 }

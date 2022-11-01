@@ -1,12 +1,13 @@
 import React, { FC, useState } from 'react';
-import { BookProps } from './Book.types';
 import clsx from 'clsx';
 
-import styles from './Book.module.scss';
+import { BookProps } from './Book.types';
 import { DeleteIcon, LikeIcon } from 'components/icons';
 import { addFavoriteBook, deleteFavoriteBook } from 'store/favoriteBooks/favoriteBooks.slice';
 import { deleteBook } from 'store/books/books.slice';
 import { useAppDispatch } from 'store/store.hooks';
+
+import styles from './Book.module.scss';
 
 export const Book: FC<{ book: BookProps }> = ({ book }) => {
   const { id } = book;
@@ -21,7 +22,7 @@ export const Book: FC<{ book: BookProps }> = ({ book }) => {
     } else {
       setFavorite(false);
       dispatch(deleteFavoriteBook(id));
-    } 
+    }
   };
 
   const handlerClickDelete = () => {

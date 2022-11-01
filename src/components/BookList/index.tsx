@@ -1,22 +1,18 @@
-import { Book } from 'components/Book'
-import React, { FC, useState } from 'react'
-import { BookListProps } from './BookListProps.types'
-import { selectFavoriteBooks } from 'store/favoriteBooks/favoriteBooks.selectors'
+import React, { FC } from 'react';
 
-import styles from './BookList.module.scss'
-import { useAppSelector } from 'store/store.hooks'
+import { Book } from 'components/Book';
+import { BookListProps } from './BookListProps.types';
+
+import styles from './BookList.module.scss';
 
 export const BookList: FC<BookListProps> = ({ books }) => {
-  
   return (
-    <section>
-        
-            <ul className={styles.books}>
-            {
-                 books.map((book) => <li key={book.id} className={styles.item}><Book book={book} /></li>)
-                }
-            </ul>
-           
-    </section>
-  )
-}
+    <ul className={styles.books}>
+      {books.map((book) => (
+        <li key={book.id} className={styles.item}>
+          <Book book={book} />
+        </li>
+      ))}
+    </ul>
+  );
+};

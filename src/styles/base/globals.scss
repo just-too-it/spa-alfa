@@ -25,15 +25,15 @@ h2 {
   margin: 0 auto;
   padding: 30px 15px;
 
-  @media (max-width: $desktop-width-max) {
+  @media (max-width: $desktop-width) {
     max-width: 1120px;
   }
 
-  @media (max-width: $tablet-width-max) {
+  @media (max-width: $tablet-width) {
     max-width: 800px;
   }
 
-  @media (max-width: $mobile-width-max) {
+  @media (max-width: $mobile-width) {
     max-width: 310px;
   }
 }

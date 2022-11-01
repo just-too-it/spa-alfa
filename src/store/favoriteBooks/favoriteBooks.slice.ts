@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
+
 import { BookProps } from 'components/Book/Book.types';
 import { FavoriteBooksState } from './favoriteBooks.types';
 

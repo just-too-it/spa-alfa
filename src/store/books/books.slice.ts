@@ -1,7 +1,8 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
-import { BookProps } from 'components/Book/Book.types';
 import axios from 'axios';
+
+import { BookProps } from 'components/Book/Book.types';
 import { STATUS } from 'core/constants/status';
 import { BooksState } from './books.types';
 
