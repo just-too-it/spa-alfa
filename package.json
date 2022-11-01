@@ -2,9 +2,11 @@
   "name": "spa-alfa",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://just-too-it.github.io/spa-alfa/",
   "dependencies": {
     "@types/react-loader-spinner": "^4.0.0",
     "axios": "^0.27.2",
+    "gh-pages": "^4.0.0",
     "normalize.css": "^8.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -49,7 +51,9 @@
     "prettier": "prettier --check src/**/*{.css,.scss}",
     "prettier:fix": "prettier --write src/**/*{.css,.scss,.ts,.tsx}",
     "eslint": "eslint src/**/*{.ts,.tsx}",
-    "eslint:fix": "eslint src/**/*{.ts,.tsx} --fix"
+    "eslint:fix": "eslint src/**/*{.ts,.tsx} --fix",
+    "deploy": "gh-pages -d build",
+    "predeploy": "npm run build"
   },
   "eslintConfig": {
     "extends": [
