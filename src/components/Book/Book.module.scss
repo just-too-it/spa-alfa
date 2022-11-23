@@ -49,6 +49,7 @@
   flex-direction: column;
   gap: 15px;
   padding: 20px;
+  width: inherit;
 
   @media (max-width: $mobile-width) {
     padding: 0;
