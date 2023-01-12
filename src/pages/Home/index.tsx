@@ -1,24 +1,22 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import clsx from 'clsx';
 
 import { BookList } from 'components/BookList';
 import { fetchBooks } from 'store/books/books.slice';
 import { useAppDispatch, useAppSelector } from 'store/store.hooks';
 import { STATUS } from 'core/constants/status';
-import { selectBooks } from 'store/books/books.selectors';
-import { selectFavoriteBooks } from 'store/favoriteBooks/favoriteBooks.selectors';
 import { Loader } from 'components/Loader';
+import { showFavoriteBooks } from 'store/favoriteBooks/favoriteBooks.slice';
 
 import styles from './Home.module.scss';
 
 export const Home = () => {
   const dispatch = useAppDispatch();
-  const [showFavoriteBooks, setShowFavoriteBooks] = useState(false);
-  const { books, status } = useAppSelector(selectBooks);
-  const { favoriteBooks } = useAppSelector(selectFavoriteBooks);
+  const { books, status } = useAppSelector((state) => state.books);
+  const { favoriteBooks, showFavorites } = useAppSelector((state) => state.favoriteBooks);
 
   const handleChangeBooks = () => {
-    setShowFavoriteBooks((showFavoriteBooks) => !showFavoriteBooks);
+    dispatch(showFavoriteBooks(!showFavorites));
   };
 
   useEffect(() => {
@@ -37,12 +35,12 @@ export const Home = () => {
       {status === STATUS.SUCCESS && (
         <>
           <button className={styles.button} onClick={handleChangeBooks}>
-            {showFavoriteBooks ? 'Показать все' : 'Показать избранное'}
+            {showFavorites ? 'Показать все' : 'Показать избранное'}
           </button>
           <h2 className={styles.title}>
-            {showFavoriteBooks ? `Избранные книги: ${favoriteBooks.length} шт.` : 'Все книги'}
+            {showFavorites ? `Избранные книги: ${favoriteBooks.length} шт.` : 'Все книги'}
           </h2>
-          {showFavoriteBooks ? <BookList books={favoriteBooks} /> : <BookList books={books} />}
+          {showFavorites ? <BookList books={favoriteBooks} /> : <BookList books={books} />}
         </>
       )}
     </main>

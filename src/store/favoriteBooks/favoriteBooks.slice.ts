@@ -6,6 +6,7 @@ import { FavoriteBooksState } from './favoriteBooks.types';
 
 const initialState: FavoriteBooksState = {
   favoriteBooks: [],
+  showFavorites: false
 };
 
 export const favoriteBooksSlice = createSlice({
@@ -18,8 +19,11 @@ export const favoriteBooksSlice = createSlice({
     deleteFavoriteBook: (state, action: PayloadAction<string>) => {
       state.favoriteBooks = state.favoriteBooks.filter((book) => book.id !== action.payload);
     },
+    showFavoriteBooks: (state, action: PayloadAction<boolean>) => {
+      state.showFavorites = action.payload;
+    },
   },
 });
 
-export const { addFavoriteBook, deleteFavoriteBook } = favoriteBooksSlice.actions;
+export const { addFavoriteBook, deleteFavoriteBook, showFavoriteBooks } = favoriteBooksSlice.actions;
 export default favoriteBooksSlice.reducer;
